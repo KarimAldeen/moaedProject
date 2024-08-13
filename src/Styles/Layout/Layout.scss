@@ -78,6 +78,11 @@ background: var(--bg);
 .Page_Header{
     display: flex; align-items: center ; justify-content: space-between;
     margin-bottom: 20px;
+    >div{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
 
     h1{
         font-size: 30px;

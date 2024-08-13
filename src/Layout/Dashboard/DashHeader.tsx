@@ -18,8 +18,11 @@ const DashHeader = ({
   return (
     <div className="Page_Header">
       <h3>{t(`${title}`)}</h3>
+      <div>
+
       {children}
       {showAddButton && <AddButtonLayout  haveAddModal={haveAddModal}/>}
+      </div>
     </div>
   );
 };

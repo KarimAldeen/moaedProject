@@ -3,7 +3,7 @@
 import React from 'react'
 import LayoutModal from '../../Layout/Dashboard/LayoutModal'
 import FormHall from './Form'
-import { useAddHall } from '../../api/Hall'
+import { useAddHall, useAddRecommended, useAddTrendy } from '../../api/Hall'
 import { getDataToSend, getInitialValues, getValidationSchema } from './formUtil'
 import { QueryStatusEnum } from '../../config/QueryStatus'
 import { useTranslation } from 'react-i18next'
@@ -12,12 +12,28 @@ function AddHallModal() {
 
 
   const [t] = useTranslation()
-  const { mutate, status } = useAddHall()
+  const { mutateAsync, status } = useAddHall()
+
+  
+  const {mutate:Recommended} = useAddRecommended();
+  const {mutate:Trendy} = useAddTrendy()
+  
+
   const handelSubmit = (values: any) => {
 
     const dataToSend = getDataToSend(values)
     console.log(dataToSend);
-    mutate(dataToSend)
+    mutateAsync(dataToSend).then((data)=>{
+      const Id = (data as any )?.id ;
+      const type = values?.type
+      if(type === "recommended"){
+        Recommended({id:Id})
+      }else{
+          Trendy({id:Id})
+      }
+    })  
+   
+
   }
   return (
     <LayoutModal

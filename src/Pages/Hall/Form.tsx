@@ -1,16 +1,13 @@
 
 import React from 'react'
 import { Col, Row } from 'reactstrap';
-import { FakeSelectData } from '../../Layout/app/Const';
-import { useFormikContext } from 'formik';
-
-import { DatePicker } from 'antd';
 import ValidationField from '../../Components/ValidationField/ValidationField';
-import { useGetCategory } from '../../api/categories';
+import { useFormikContext } from 'formik';
 
 function FormHall() {
   const categories = [{key:"Weddings",value:"Weddings"},{key:"Sad occasions",value:"Sad occasions"}
     ,{key:"Graduation parties",value:"Graduation parties"},{key:"Birthdays",value:"Birthdays"}]
+    const {values} = useFormikContext<any>()
   return (
     <Row xs={1} sm={1} md={1} lg={2} xl={2}>
       <Col>
@@ -27,7 +24,14 @@ function FormHall() {
       <ValidationField name="category" type="Select" label='category' placeholder='category' option={categories} />
       <ValidationField name="hall_image" type="File" label='hall_image' placeholder='hall_image' />
       {/* <ValidationField name="images" type="MaltyFile" label='images'  placeholder='images' /> */}
-
+      {!values?.id && 
+      
+      <ValidationField name="type" type="Select" label='type' placeholder='type'  option={[
+              { value: 'recommended', label: 'recommended' },
+              { value: 'trendy', label: 'trendy' },
+           
+            ]} />
+      }
       </Col>
 
 

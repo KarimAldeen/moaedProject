@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Actions from "../../Components/Ui/tables/Actions";
 import { mapTranslatedProperties } from "../../utils/language/mapTranslatedProperties";
 import { useDeleteHall } from "../../api/Hall";
+import Switch from "./field/Switch";
 
 
 const useTableColumns: any = () => {
@@ -45,8 +46,9 @@ const useTableColumns: any = () => {
         center: true,
         cell: (row: any) =>row?.["Rental Cost"],
       },
-      
 
+      
+      
       {
         name: "#",
         sortable: false,

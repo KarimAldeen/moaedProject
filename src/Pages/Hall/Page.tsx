@@ -8,6 +8,7 @@ import { useGetHall} from '../../api/Hall'
 import { QueryStatusEnum } from '../../config/QueryStatus'
 import EditHallModal from './EditModal'
 import AddHallModal from './AddModal'
+import Switch from './field/Switch'
 
 function HallPage() {
 
@@ -18,7 +19,9 @@ function HallPage() {
   return (
     
     <DashBody status={status as QueryStatusEnum} >
-      <DashHeader title={'Hall'}></DashHeader>
+      <DashHeader title={'Hall'}>
+      
+      </DashHeader>
       
       <LyTable
         data={data}

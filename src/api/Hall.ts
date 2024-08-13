@@ -1,8 +1,9 @@
 
 import useAddMutation from "./helper/useAddMutation"
+import useAddMutationRecommended from "./helper/useAddMutationRecommended";
+import useAddMutationTrendy from "./helper/useAddMutationTrendy";
 import useDeleteMutation from "./helper/useDeleteMutation"
 import useGetQuery from "./helper/useGetQuery"
-import { useToggleStatus } from "./helper/useToggleStatus";
 import useUpdateMutation from "./helper/useUpdateMutation"
 
   const API = {
@@ -17,3 +18,7 @@ import useUpdateMutation from "./helper/useUpdateMutation"
   export const useAddHall = () => useAddMutation(KEY, API.ADD);
   export const useUpdateHall = () => useUpdateMutation(KEY, API.UPDATE);
   export const useDeleteHall = () =>useDeleteMutation(KEY, API.DELETE);
+
+
+  export const useAddRecommended = (params?:any) => useAddMutationRecommended(KEY);
+  export const useAddTrendy = (params?:any) => useAddMutationTrendy(KEY );
