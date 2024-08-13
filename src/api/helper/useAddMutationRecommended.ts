@@ -16,6 +16,8 @@ function useAddMutationRecommended(key: string): UseMutationResult<AxiosResponse
 
   return useMutation<AxiosResponse, unknown, any, unknown>(
     async (dataToSend) => {
+      console.log(dataToSend,"dataToSend");
+      
       const { data } = await axios.post(`/api/halls/${dataToSend?.id}/recommended`, dataToSend,{
         headers:{
           "Content-Type": "multipart/form-data",

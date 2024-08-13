@@ -24,7 +24,9 @@ function AddHallModal() {
     const dataToSend = getDataToSend(values)
     console.log(dataToSend);
     mutateAsync(dataToSend).then((data)=>{
-      const Id = (data as any )?.id ;
+      console.log(data,"data");
+      
+      const Id = (data as any )?.HALL?.id ;
       const type = values?.type
       if(type === "recommended"){
         Recommended({id:Id})

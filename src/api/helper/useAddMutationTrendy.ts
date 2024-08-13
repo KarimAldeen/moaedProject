@@ -16,6 +16,7 @@ function useAddMutationTrendy(key: string): UseMutationResult<AxiosResponse, unk
 
   return useMutation<AxiosResponse, unknown, any, unknown>(
     async (dataToSend) => {
+      console.log(dataToSend,"dataToSend");
       const { data } = await axios.post(`/api/halls/${dataToSend?.id}/trendy`, dataToSend,{
         headers:{
           "Content-Type": "multipart/form-data",
