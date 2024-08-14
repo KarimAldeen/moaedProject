@@ -30,7 +30,7 @@ function AddHallModal() {
       const type = values?.type
       if(type === "recommended"){
         Recommended({id:Id})
-      }else{
+      }else if((type === "trendy")){
           Trendy({id:Id})
       }
     })  
