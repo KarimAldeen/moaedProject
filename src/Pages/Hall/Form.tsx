@@ -31,7 +31,9 @@ function FormHall() {
               { value: 'trendy', label: 'trendy' },
            
             ]} />
+            
       }
+       <ValidationField name="images" type="MaltyFile" label='images' placeholder='images' />
       </Col>
 
 
